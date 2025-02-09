@@ -1,7 +1,5 @@
 /* Etch-A-Sketch Stylesheet */
 
-/* *{border: solid 1px blue;} */ 
-
 .frame {
    width: 800px;
    height: 900px;
@@ -10,18 +8,32 @@
    flex-direction: column;
    align-items: center;
    justify-content: space-between;
-   
    background-color: red;
    border-radius: 40px;
+
+
 }
 
 .gridContainer {
    width: 640px;
    height: 640px;
    border: solid black 1px;
-   background-color: white;
+   background-color: lightslategray;
    margin-top: 80px;
+   z-index: 2;
 }
+
+.gridOverlay {
+   position: absolute;
+   width: 640px;
+   height: 640px;
+   background-color: lightslategray;
+   z-index: 1;
+   margin-top: 80px;
+   opacity: 0.5;
+}
+
+
 
 .knobs {
    display: flex;
@@ -34,5 +46,18 @@
    height: 80px;
    width: 80px;
    border-radius: 40px;
-   background-color: gray;
+   background-color: whitesmoke;
+}
+
+.controls {
+   padding-bottom: 10px;
+}
+
+.outerBox {
+   display: flex;
+   justify-content: center;
+}
+
+.frameLeftSpacer {
+   margin-left: 0px;  
 }
