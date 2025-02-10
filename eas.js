@@ -80,6 +80,6 @@ reset.addEventListener("click", () => {
          grid.removeChild(grid.firstChild);
          console.log("In remove function");
       }
-      buildGrid(gridSizeInput.value);}, 2000);
+      buildGrid(gridSizeInput.value);}, 3000);
 });
 
