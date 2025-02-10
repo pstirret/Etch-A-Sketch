@@ -1,34 +1,46 @@
 // eas.js : Etch-A-Sketch js file
 
 let grid = document.querySelector(".gridContainer");
-let gridDim = 16;
+let gridSizeInput = document.querySelector(".gridSize");
 
-for(let i=0; i<gridDim; i++) {
-   let gridRow = document.createElement("div");
-   gridRow.style.display = "flex";
-   for (let j=0; j<gridDim; j++) {
-      let gridBox = document.createElement("div");
-      // Create the element for a single box
-      gridBox.style.height = "40px";
-      gridBox.style.width = "40px";
-      gridBox.id = `boxR${i}C${j}`;
-      gridBox.backgroundColor = "lightslategray"
-      gridRow.appendChild(gridBox);
+buildGrid(gridSizeInput.value);
+
+function buildGrid (gridSize) {
+   let gridContainerDim = 640;
+   let gridDim = gridSize;
+  
+   let boxDimStr = `${gridContainerDim / gridDim}px`;
+
+   for(let i=0; i<gridDim; i++) {
+      let gridRow = document.createElement("div");
+      gridRow.style.display = "flex";
+      for (let j=0; j<gridDim; j++) {
+         let gridBox = document.createElement("div");
+         gridBox.style.height = boxDimStr;
+         gridBox.style.width = boxDimStr;
+         gridBox.id = `boxR${i}C${j}`;
+         gridBox.style.backgroundColor = "lightslategray"
+         gridBox.style.opacity = 0;
+         gridRow.appendChild(gridBox);
+      }
+      grid.appendChild(gridRow);
    }
-   grid.appendChild(gridRow);
-}
+};
 
 grid.addEventListener("mouseover", function(event){
    let curBox = document.getElementById(`${event.target.id}`);
    curBox.style.backgroundColor = "black";
+   curBox.style.opacity = parseFloat(window.getComputedStyle(curBox).
+      opacity) + 0.33;
 });
 
 let erase = document.querySelector(".btn.erase");
-erase.addEventListener("click", function() {
+erase.addEventListener("click", eraseGrid);
+   
+function eraseGrid () {
    let frameLeftSpacer = document.querySelector(".frameLeftSpacer");
    let gridOverlay = document.querySelector(".gridOverlay");
    
-   let isShakeDone = false;
    let count = 1;
    let numLoops = 8;
    let delay = 200;
@@ -58,5 +70,16 @@ erase.addEventListener("click", function() {
       });
       gridOverlay.style.zIndex = "1";
    }, (count)*delay);
-})
+};
+
+let reset = document.querySelector(".btn.reset");
+reset.addEventListener("click", () => {
+   eraseGrid();
+   setTimeout(() => {
+      while (grid.firstChild) {
+         grid.removeChild(grid.firstChild);
+         console.log("In remove function");
+      }
+      buildGrid(gridSizeInput.value);}, 2000);
+});
 
