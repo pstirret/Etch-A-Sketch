@@ -9,24 +9,33 @@
 </head>
 <body>
    <h1>Etch-A-Sketch</h1>
-   <div class="controls">
-      <button class="btn reset">Reset</button>
-      <input class="gridSize" type="text" id="gridDim" min="1"
-         max="100" value="40"/>
-      <button class="btn erase">Erase</button>
-   </div>
-   <div class="outerBox">
-      <div class="frameLeftSpacer"></div>
-      <div class="frame">
-         <div class="gridContainer"></div>
-         <div class="gridOverlay"></div>
-         <div class="knobs">
-            <div class="knob1"></div>
-            <img class="logo" src="Etch_A_Sketch.webp" alt="Etch A Sketch logo">
-            <div class="knob2"></div>
+   <div class="controlsAndBox">
+      <div class="controls">
+         <button class="btn reset">Reset Grid Size</button>
+         <div class="gridSizeControl">
+            <p>Grid Size:</p>
+            <input class="gridSize" type="text" id="gridDim" min="1"
+               max="100" value="40"/>
          </div>
+         <div class="colorCheckBox">
+            <p>Colored Line?</p>
+            <input type="checkbox" class="checkBox">
+         </div>
+         <button class="btn erase">Erase</button>
       </div>
-      <div class="frameRightSpacer"></div>
+      <div class="outerBox">
+         <div class="frameLeftSpacer"></div>
+         <div class="frame">
+            <div class="gridContainer"></div>
+            <div class="gridOverlay"></div>
+            <div class="knobs">
+               <div class="knob1"></div>
+               <img class="logo" src="Etch_A_Sketch.webp" alt="Etch A Sketch logo">
+               <div class="knob2"></div>
+            </div>
+         </div>
+         <div class="frameRightSpacer"></div>
+      </div>
    </div>
 </body>
 </html>

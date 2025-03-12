@@ -4,9 +4,46 @@ h1 {
    text-align: center;
 }
 
+.controlsAndBox {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
 .controls {
    display: flex;
+   justify-content: space-between;
+   padding-bottom: 10px;
+   width: 700px;
+   align-self: center;
+}
+
+.gridSizeControl {
+   display: flex;
    justify-content: center;
+   align-items: center;
+   padding: 0px;
+   margin: 0px;
+}
+
+.gridSizeControl > p {
+   margin: 0px;
+}
+
+.gridSize {
+   width: 50px;
+   text-align: center;
+   margin-left: 10px;
+}
+
+.colorCheckBox {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.colorCheckBox > p {
+   margin: 0px;
 }
 
 .frame {
@@ -59,10 +96,6 @@ h1 {
 .logo {
    height: 60%;
    width: auto;
-}
-
-.controls {
-   padding-bottom: 10px;
 }
 
 .outerBox {

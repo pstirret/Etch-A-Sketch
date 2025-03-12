@@ -29,7 +29,19 @@ function buildGrid (gridSize) {
 
 grid.addEventListener("mouseover", function(event){
    let curBox = document.getElementById(`${event.target.id}`);
-   curBox.style.backgroundColor = "black";
+   let isColor = document.querySelector(".checkBox");
+   let colorStr = ``;
+   if (isColor.checked) {
+      colorStr = `rgb(
+         ${Math.floor(Math.random()*255)},
+         ${Math.floor(Math.random()*255)},
+         ${Math.floor(Math.random()*255)})`;
+   }
+   else {
+      colorStr = `black`;
+   }
+   
+   curBox.style.backgroundColor = colorStr;
    curBox.style.opacity = parseFloat(window.getComputedStyle(curBox).
       opacity) + 0.33;
 });
